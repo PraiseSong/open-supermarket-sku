@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** 本地演示：用商品名称查条码 / 进货渠道价 / 规格，或用条码反查详情。 */
+/** 本地演示：用商品名称查条码 / 规格，或用条码反查详情。 */
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -18,7 +18,6 @@ function printItem(it) {
   const spec = (it.spec || []).join(' / ') || '-'
   console.log(`名称：${it.name}`)
   console.log(`条码：${it.barcode}`)
-  console.log(`进货渠道价：${it.channel_price}`)
   console.log(`规格：${spec}`)
   if (it.category) console.log(`分类：${it.category}`)
   console.log()

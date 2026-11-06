@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""本地演示：用商品名称查条码 / 进货渠道价 / 规格，或用条码反查详情。"""
+"""本地演示：用商品名称查条码 / 规格，或用条码反查详情。"""
 import argparse
 import json
 from pathlib import Path
@@ -31,7 +31,6 @@ def print_item(it):
     spec = ' / '.join(it.get('spec') or []) or '-'
     print(f"名称：{it['name']}")
     print(f"条码：{it['barcode']}")
-    print(f"进货渠道价：{it['channel_price']}")
     print(f"规格：{spec}")
     if it.get('category'):
         print(f"分类：{it['category']}")
@@ -39,7 +38,7 @@ def print_item(it):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='左邻右舍商品资料样本查询')
+    parser = argparse.ArgumentParser(description='open-supermarket-sku 商品资料样本查询')
     g = parser.add_mutually_exclusive_group(required=True)
     g.add_argument('--name', help='按商品名称查询（支持部分匹配）')
     g.add_argument('--barcode', help='按商品条码查询')
